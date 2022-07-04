@@ -28,9 +28,13 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     //
-	implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
 //    implementation("javax.validation:validation-api")
 
+    //
+    implementation("org.springframework.data:spring-data-releasetrain:Lovelace-SR1")
+    implementation("com.amazonaws:aws-java-sdk-dynamodb:1.12.239")
+    implementation("com.github.derjust:spring-data-dynamodb:5.1.0")
 }
 
 tasks.withType<KotlinCompile> {

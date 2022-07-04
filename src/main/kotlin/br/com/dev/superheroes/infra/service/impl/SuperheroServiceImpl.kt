@@ -10,11 +10,14 @@ import org.springframework.stereotype.Service
 @Service
 class SuperheroServiceImpl(@Autowired val superheroRepository: SuperheroRepository) : SuperheroService {
     override fun createHero(heroDTO: HeroDTO) {
-        superheroRepository.create(heroDTO.toHero())
+        superheroRepository.save(heroDTO.toHero())
     }
 
     override fun getAllHeroes(): List<HeroDTO> {
-        val heroes = this.superheroRepository.getAllHeroes()
-        return heroes.map { HeroDTO(it.name, it.enabled) }
+        val heroes = this.superheroRepository.findAll()
+        println(heroes.forEach { print("$it \n") })
+        return heroes.toList().map {
+            HeroDTO(it.name ?: "", it.enabled ?: false)
+        }
     }
 }

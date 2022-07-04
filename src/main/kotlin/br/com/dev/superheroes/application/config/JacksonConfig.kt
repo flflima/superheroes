@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class JacksonConfig {
+class JacksonConfig {
 
     @Bean("objectMapper")
     fun getObjectMapper(): JsonMapper = JsonMapper.builder()

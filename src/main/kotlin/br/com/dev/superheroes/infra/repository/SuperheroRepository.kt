@@ -1,9 +1,10 @@
 package br.com.dev.superheroes.infra.repository
 
 import br.com.dev.superheroes.infra.model.Hero
+import org.socialsignin.spring.data.dynamodb.repository.EnableScan
+import org.springframework.data.repository.CrudRepository
 
-interface SuperheroRepository {
-    fun create(hero: Hero): Hero
+@EnableScan
+interface SuperheroRepository: CrudRepository<Hero, String> {
 
-    fun getAllHeroes(): List<Hero>
 }

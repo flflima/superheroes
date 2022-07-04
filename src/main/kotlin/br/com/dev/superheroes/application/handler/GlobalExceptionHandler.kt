@@ -24,9 +24,7 @@ class GlobalExceptionHandler {
     ): MyResponseDTO {
         val errors = ex.bindingResult
             .fieldErrors
-            .stream()
             .map { obj: FieldError -> obj.defaultMessage }
-            .collect(Collectors.toList())
         return MyResponseDTO(
             status = HttpStatus.BAD_REQUEST.value(),
             message = "Error",
